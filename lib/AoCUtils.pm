@@ -6,6 +6,7 @@ use warnings;
 use Exporter qw(import);
 our @EXPORT_OK = qw(
 	get_file_handler
+	get_array_from_file
 );
 
 sub get_file_handler {
@@ -24,6 +25,19 @@ sub get_file_handler {
 	}
 	
 	return $FH;
+}
+
+sub get_array_from_file {
+	my @args = @_;
+	
+	return 0 if (scalar @args != 1);
+
+	my $FH = get_file_handler(shift(@args));
+	
+	chomp(my @lines = <$FH>);
+	close $FH;
+	
+	return @lines;
 }
 
 1;
