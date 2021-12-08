@@ -17,12 +17,12 @@ my ($x_axis, $y_axis) = (0, 0);
 
 foreach (@lines){
     my ($command, $depth) = split(/ /, $_);
-    
+
     given ($command) {
-		when ('forward') { $x_axis += $depth; }
-		when ('down') { $y_axis += $depth; }
-		when ('up') { $y_axis -= $depth; }		
-	}
+        when ('forward') { $x_axis += $depth; }
+        when ('down') { $y_axis += $depth; }
+        when ('up') { $y_axis -= $depth; }
+    }
 }
 
 print "Part One:\t".($x_axis * $y_axis)."\n";
@@ -36,15 +36,15 @@ $x_axis = $y_axis = $aim;
 
 foreach (@lines){
     my ($command, $depth) = split(/ /, $_);
-    
+
     given ($command) {
-		when ('forward') {
-			$x_axis += $depth;
-			$y_axis += $aim * $depth;			
-		}
-		when ('down') { $aim += $depth; }
-		when ('up') { $aim -= $depth; }		
-	}
+        when ('forward') {
+            $x_axis += $depth;
+            $y_axis += $aim * $depth;
+        }
+        when ('down') { $aim += $depth; }
+        when ('up') { $aim -= $depth; }
+    }
 }
 
 print "Part Two:\t".($x_axis * $y_axis)."\n";

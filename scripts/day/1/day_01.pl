@@ -16,10 +16,10 @@ my $last_measurement = <$fh>;
 my $number_increases = 0;
 
 while (<$fh>) {
-	if ($_ > $last_measurement) {		
-		$number_increases++;
-	}
-	$last_measurement = $_;
+    if ($_ > $last_measurement) {
+        $number_increases++;
+    }
+    $last_measurement = $_;
 }
 
 print "Part One:\t$number_increases\n";
@@ -40,11 +40,11 @@ my $sums = $measurements[0] + $measurements[1] + $measurements[2];
 my $increases = 0;
 
 for (my $i = 1; $i < $#measurements - 1; $i++) {
-	my $temp = $measurements[$i] + $measurements[$i + 1]+ $measurements[$i + 2];
-	if ($temp > $sums) {
-		$increases++;
-	}
-	$sums = $temp;
+    my $temp = $measurements[$i] + $measurements[$i + 1]+ $measurements[$i + 2];
+    if ($temp > $sums) {
+        $increases++;
+    }
+    $sums = $temp;
 }
 
 print "Part Two:\t$increases\n";
